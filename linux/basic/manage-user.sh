@@ -17,7 +17,7 @@ function create_user() {
     fi
 
     if getent passwd "${USER_NAME}" > /dev/null; then
-        echo "Пользователь ${USER_NAME} уже существует. Переход к следующему шагу"
+        echo "Пользователь ${USER_NAME} уже существует"
     else
         echo "Создание пользователя ${USER_NAME}"
 
@@ -30,7 +30,7 @@ function create_user() {
 
             echo "${USER_NAME}:${USER_PASSWORD}" | sudo chpasswd
 
-            if [${?} -eq 0]; then
+            if [ ${?} -eq 0 ]; then
                 echo "Пароль для пользователя ${USER_NAME} установлен"
             else
                 echo "Не удалось установить пароль для пользователя ${USER_NAME}"
@@ -40,7 +40,7 @@ function create_user() {
     fi
 
     local SUDOER=${3}
-    if [[ SUDOER == "s" ]]; then
+    if [[ ${SUDOER} == "s" ]]; then
         if id -nG "${USER_NAME}" | grep -qw "sudo"; then
             echo "Пользователь ${USERNAME} уже состоит в группе sudo"
         else
