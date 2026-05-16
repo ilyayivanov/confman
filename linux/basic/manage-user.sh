@@ -42,7 +42,7 @@ function create_user() {
     local SUDOER=${3}
     if [[ ${SUDOER} == "s" ]]; then
         if id -nG "${USER_NAME}" | grep -qw "sudo"; then
-            echo "Пользователь ${USERNAME} уже состоит в группе sudo"
+            echo "Пользователь ${USER_NAME} уже состоит в группе sudo"
         else
             echo "Добавление пользователя ${USER_NAME} в группу sudo"
             
