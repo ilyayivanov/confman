@@ -1,1 +1,1 @@
-https://iplist.opencck.org/ru/`
+https://iplist.opencck.org/ru/
